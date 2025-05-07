@@ -1,0 +1,4 @@
+repository "GAMEKMIPN1@maeriphycom@cloud"
+  path "/"
+    br "/main"
+    co "/main"
