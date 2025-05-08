@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CharcMov : MonoBehaviour
 {
+    
+    
     private Rigidbody2D rb2D;
     Animator animator;
     //private bool grounded;
@@ -19,19 +22,33 @@ public class CharcMov : MonoBehaviour
     //[SerializeField] float jumpSpeed;
     [SerializeField] float sprintMultiplier;
 
+
     //NEW INPUT SYSTEM //
     public PlayerInputAction playerControls;
     private InputAction move;
     private InputAction jump;
     private InputAction sprint;
+
+    private static CharcMov instance;
     Vector2 MovH = Vector2.zero;
 
 
     void Awake()
     {
         playerControls = new PlayerInputAction();
+
+        if (instance != null)
+        {
+            Debug.LogError("Found more than one CharcMov in the scene.");
+        }
+        instance = this;
+        
     }
 
+    public static CharcMov GetInstance() 
+    {
+        return instance;
+    }
     void OnEnable()
     {
         move = playerControls.Player.Move;
@@ -72,7 +89,7 @@ public class CharcMov : MonoBehaviour
     {
         //MovH = Input.GetAxisRaw("Horizontal");
 
-        if (DialogueManager.GetInstance().dialogueisplaying || ItemExaminer.GetInstance().examineisplaying)
+        if (DialogueManager.GetInstance().dialogueisplaying || ItemExaminer.GetInstance().examineisplaying || InventoryManager.GetInstance().inventoryisactive)
         {
             rb2D.velocity = Vector2.zero;
             animator.SetBool("IsMoving", false);
@@ -82,7 +99,7 @@ public class CharcMov : MonoBehaviour
             return;
         }
 
-        else if (!DialogueManager.GetInstance().dialogueisplaying || !ItemExaminer.GetInstance().examineisplaying){
+        else if (!DialogueManager.GetInstance().dialogueisplaying || !ItemExaminer.GetInstance().examineisplaying || !InventoryManager.GetInstance().inventoryisactive){
         movSpeed = isSprinting ? sprintMultiplier : walkspeed;
         animator.SetBool("IsRunning", isSprinting);
 
@@ -187,6 +204,14 @@ public class CharcMov : MonoBehaviour
         
     } */
 
+    public void StopPlayerAnimation(){
+         
+    }
+
+   /*  public void SetCanMove(bool move)
+    {
+        canMove = move;
+    } */
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("ground"))

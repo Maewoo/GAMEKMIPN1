@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
     private bool leftClickPressed = false;
     private bool nextDialoguePressed = false;
 
+    private bool invButtonPressed = false;
+
     private static InputManager instance;
 
     private void Awake()
@@ -80,6 +82,18 @@ public class InputManager : MonoBehaviour
         } 
     }
 
+    public void InvButtonPressed(InputAction.CallbackContext context){
+        if (context.performed)
+        {
+            invButtonPressed = true;
+            Debug.Log ("Inventory button pressed");
+        }
+        else if (context.canceled)
+        {
+            invButtonPressed = false;
+        } 
+    }
+
     public void OnClick(InputAction.CallbackContext context){
         if (!context.started) return;
         
@@ -121,5 +135,14 @@ public class InputManager : MonoBehaviour
     }
     public void RegisterLeftClick(){
         leftClickPressed = false;
+    }
+
+    public bool GetInvButtonPressed(){
+        bool result = invButtonPressed;
+        invButtonPressed = false;
+        return result;
+    }
+    public void RegisterInvButton(){
+        invButtonPressed = false;
     }
 }
