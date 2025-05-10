@@ -17,6 +17,8 @@ public class ItemExaminer : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private Button collectButton;
 
+    //[SerializeField] private InventorySystem inventorySystem;
+
     
 
     /* [Header("Choices UI")]
@@ -30,7 +32,7 @@ public class ItemExaminer : MonoBehaviour
     private void Awake()
     {
         if (instance != null){
-            Debug.LogWarning("Ditemukan lebih dari satu dialogmanager script");
+            Debug.LogWarning("Ditemukan lebih dari satu itemexaminer script");
         }
         instance = this;
     }
@@ -49,6 +51,8 @@ public class ItemExaminer : MonoBehaviour
     public void ExamineItem(ItemData item, ObjectTrigger trigger)
     
     {
+        examineUI.SetActive(true);
+
         currentStory = null;
 
         currentItem = item;
@@ -68,26 +72,32 @@ public class ItemExaminer : MonoBehaviour
         var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("UI");
 
-        collectButton.onClick.RemoveAllListeners();
+        /* collectButton.onClick.RemoveAllListeners();
         collectButton.onClick.AddListener(() => {
             Debug.Log("Collect Button Clicked!");
             CollectItem();
-        });
+
+        }); */
         //collectButton.onClick.AddListener(CollectItem);
 
-        examineUI.SetActive(true);
+        
     }
 
-    void CollectItem()
+    public void CollectItem()
     {
         Debug.Log("Collected: " + currentItem.itemID);
-        // Add item to inventory here
-        
+        // Menambahkan item ke inventory
+        InventoryManager.GetInstance().AddItem(currentItem);
+
+        /* InventorySystem inventory = InventorySystem;
+        bool added = inventory.AddItem(currentItem); */
+        //InventoryManager.Instance.inventorySystem.AddItem(currentItem);
+
         currentItem = null;
         currentStory = null;
         examineUI.SetActive(false);
         examineisplaying = false;
-        currentTrigger.Collect();
+        currentTrigger.Collect(); //untuk hide gameobject setelah dicollect
 
         var playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
         playerInput.SwitchCurrentActionMap("Player");

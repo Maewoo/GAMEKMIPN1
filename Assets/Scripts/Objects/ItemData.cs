@@ -8,6 +8,15 @@ public class ItemData : ScriptableObject
     public string itemID;
     public string defaultName;
     public Sprite image;
+    
+    private InventoryManager inventoryManager;
     public TextAsset inkStoryAsset; // Link to the ink file for that item
+
+    void Awake()
+    {
+        inventoryManager = GameObject.Find("Manager").GetComponentInChildren<InventoryManager>();
+    }
+    
+
 }
 

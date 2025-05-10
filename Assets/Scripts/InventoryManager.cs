@@ -16,21 +16,24 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Button inventoryButton;
     [SerializeField] Button exitInventoryButton;
 
-    static InventoryManager instance;
+    private List<ItemData> collectedItems = new List<ItemData>();
+    public static InventoryManager Instance {get ; private set; }
+    //public InventorySystem inventorySystem;
+    public ItemSlot[] itemSlot;
 
 
     public static InventoryManager GetInstance()
     {
-        return instance;
+        return Instance;
     }
 
     void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.LogError("Found more than one InventoryManager in the scene.");
         }
-        instance = this;
+        Instance = this;
     }
     void Start()
     {
@@ -74,4 +77,26 @@ public class InventoryManager : MonoBehaviour
 
         inventoryButton.interactable = true;
     }
+
+    public void AddItem(ItemData item)
+    {
+       /*  if (!collectedItems.Contains(item))
+        {
+            collectedItems.Add(item); */
+            Debug.Log($"Item added to inventory: {item.itemID}");
+
+            for (int i = 0; i < itemSlot.Length; i++){
+                if (itemSlot[i].isFull == false)
+                {
+                    itemSlot[i].AddItem(item);
+                    return;
+
+                }
+            }
+        }
+        /* else
+        {
+            Debug.LogWarning("Item already in inventory.");
+        } */
+    //}
 }
