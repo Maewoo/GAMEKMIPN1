@@ -7,18 +7,26 @@ using TMPro;
 public class Item : MonoBehaviour
 {
     [SerializeField] string itemName;
-    [SerializeField] Sprite sprite;
+    [TextArea]
+    [SerializeField] string itemDescription;
+    [SerializeField] int quantity;
+    [SerializeField] Sprite itemSprite;
 
     private InventoryManager inventoryManager;
 
     void Start()
     {
-        inventoryManager = GameObject.Find("Manager").GetComponent<InventoryManager>();
+        inventoryManager = GameObject.Find("Manager").GetComponentInChildren<InventoryManager>();
     }
 
     void Update()
     {
         
     }
+    // Public getters
+    public string GetItemName() => itemName;
+    public string GetItemDescription() => itemDescription;
+    public Sprite GetItemSprite() => itemSprite;
+    public int GetItemQuantity() => quantity;
 
 }

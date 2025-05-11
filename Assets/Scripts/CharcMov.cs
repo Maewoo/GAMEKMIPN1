@@ -60,12 +60,15 @@ public class CharcMov : MonoBehaviour
         /* jump = playerControls.Player.Jump;
         jump.Enable();
         jump.performed += Jump; */
+        playerControls.UI.Enable();
 
         sprint = playerControls.Player.Sprint;
         sprint.Enable();
         //sprint.performed += sprint;
         playerControls.Player.Sprint.performed += context => isSprinting = true;
         playerControls.Player.Sprint.canceled += context => isSprinting = false;
+
+        
     }
     void OnDisable()
     {

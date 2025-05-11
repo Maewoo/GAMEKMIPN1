@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -16,7 +17,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] Button inventoryButton;
     [SerializeField] Button exitInventoryButton;
 
-    private List<ItemData> collectedItems = new List<ItemData>();
     public static InventoryManager Instance {get ; private set; }
     //public InventorySystem inventorySystem;
     public ItemSlot[] itemSlot;
@@ -51,7 +51,12 @@ public class InventoryManager : MonoBehaviour
             PanelIsOff();
         }
 
-
+        if (ItemExaminer.GetInstance().examineisplaying || DialogueManager.GetInstance().dialogueisplaying){
+            inventoryButton.gameObject.SetActive(false);
+        }
+        else{
+            inventoryButton.gameObject.SetActive(true);
+        }
     }
 
 
@@ -78,12 +83,24 @@ public class InventoryManager : MonoBehaviour
         inventoryButton.interactable = true;
     }
 
-    public void AddItem(ItemData item)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
+
+        for (int i = 0; i < itemSlot.Length; i++){
+                if (itemSlot[i].isFull == false)
+                {
+                    itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                    return;
+
+                }
+            }
+
+        
+        
        /*  if (!collectedItems.Contains(item))
         {
             collectedItems.Add(item); */
-            Debug.Log($"Item added to inventory: {item.itemID}");
+            /* Debug.Log($"Item added to inventory: {item.itemID}");
 
             for (int i = 0; i < itemSlot.Length; i++){
                 if (itemSlot[i].isFull == false)
@@ -92,11 +109,34 @@ public class InventoryManager : MonoBehaviour
                     return;
 
                 }
-            }
-        }
+            } */
+        //}
+
+        
         /* else
         {
             Debug.LogWarning("Item already in inventory.");
         } */
     //}
+
+    /* public void RefreshInventory(List<ItemData> items)
+    {
+        foreach (Transform child in slotParent)
+            Destroy(child.gameObject);
+
+        foreach (ItemData data in items)
+        {
+            GameObject slotGO = Instantiate(itemSlotPrefab, slotParent);
+            ItemSlot slot = slotGO.GetComponent<ItemSlot>();
+            slot.AddItem(data); // This assigns itemData internally
+        }
+    } */
+}
+
+    public void DeselectAllSlots(){
+        for(int i = 0; i < itemSlot.Length; i++){
+            itemSlot[i].selectedSelect.SetActive(false);
+        }
+    }
+
 }

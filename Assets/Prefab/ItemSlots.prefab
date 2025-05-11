@@ -69,15 +69,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 8b19f370f58726241ae2a32d1c526e99, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &8400252548690368719
 MonoBehaviour:
@@ -91,9 +91,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b64f3c641bbaa4a9a173aa2c322752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 6fd31540bf33a4841b16f9f00ad8deb8, type: 2}
+  itemName: 
+  itemSprite: {fileID: 21300000, guid: 8b19f370f58726241ae2a32d1c526e99, type: 3}
+  itemDescription: 
+  quantity: 0
   isFull: 0
   itemImage: {fileID: 1113585659138878599}
+  quantityText: {fileID: 6329207545618710700}
+  itemDescImage: {fileID: 0}
+  itemNametext: {fileID: 0}
+  itemDescText: {fileID: 0}
+  selectedSelect: {fileID: 7632673361459701914}
+  thisItemSelected: 0
 --- !u!1 &4346323368874873610
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,10 +168,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ea77f1f8ca97e2f49832c1d65f6f49fe, type: 2}
+  m_sharedMaterial: {fileID: -7428942665292751360, guid: ea77f1f8ca97e2f49832c1d65f6f49fe, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -186,8 +195,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.97
-  m_fontSizeBase: 45.97
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -293,15 +302,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c99905e0fdd5794dbe20c28aab459c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b19f370f58726241ae2a32d1c526e99, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7632673361459701914
 GameObject:

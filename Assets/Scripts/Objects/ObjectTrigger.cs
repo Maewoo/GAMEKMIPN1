@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,7 +19,7 @@ public class ObjectTrigger : MonoBehaviour
     bool PlayerInRange;
 
     public ItemExaminer examiner;
-    [SerializeField] private ItemData itemData;
+    //[SerializeField] private ItemData itemData; 
     
 
     private void Awake()
@@ -38,7 +39,8 @@ public class ObjectTrigger : MonoBehaviour
             if (InputManager.GetInstance().GetInteractPressed())
             {
                 //ObjectManager.GetInstance().EnterDialogueMode(inkJSON);
-                examiner.ExamineItem(itemData, this);
+                //examiner.ExamineItem(itemData, this);
+                examiner.ExamineItem(this.gameObject, this);
             }
         }
         else
@@ -58,7 +60,9 @@ public class ObjectTrigger : MonoBehaviour
 
     public void Collect()
     {
-        this.transform.parent.gameObject.SetActive(false);
+        //this.transform.parent.gameObject.SetActive(false);
+        Destroy(this.gameObject);
+        
     }
     /* void OnInteractWithItem(ItemData item)
     {

@@ -91,8 +91,8 @@ public class DialogueManager : MonoBehaviour
         //dialogTeks.text = storynya.Continue();
         ContinueStory();
 
-        var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("UI");
+        /* var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UI"); */
     }
     private IEnumerator ExitDialogueMode(){
 
@@ -101,8 +101,8 @@ public class DialogueManager : MonoBehaviour
         dialogPanel.SetActive(false);
         dialogTeks.text = "";
 
-        var playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("Player");
+        /* var playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("Player"); */
     }
 
     private void ContinueStory(){

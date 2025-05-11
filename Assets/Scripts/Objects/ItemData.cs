@@ -12,10 +12,10 @@ public class ItemData : ScriptableObject
     private InventoryManager inventoryManager;
     public TextAsset inkStoryAsset; // Link to the ink file for that item
 
-    void Awake()
+    /* void OnEnable()
     {
-        inventoryManager = GameObject.Find("Manager").GetComponentInChildren<InventoryManager>();
-    }
+        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+    } */
     
 
 }
