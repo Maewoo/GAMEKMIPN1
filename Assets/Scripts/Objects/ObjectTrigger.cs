@@ -18,7 +18,7 @@ public class ObjectTrigger : MonoBehaviour
     //public InteractionType type;
     bool PlayerInRange;
 
-    public ItemExaminer examiner;
+    private ItemExaminer examiner;
     //[SerializeField] private ItemData itemData; 
     
 
@@ -40,6 +40,7 @@ public class ObjectTrigger : MonoBehaviour
             {
                 //ObjectManager.GetInstance().EnterDialogueMode(inkJSON);
                 //examiner.ExamineItem(itemData, this);
+                examiner = ItemExaminer.GetInstance().gameObject.GetComponent<ItemExaminer>();
                 examiner.ExamineItem(this.gameObject, this);
             }
         }

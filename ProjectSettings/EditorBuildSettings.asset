@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/RuangTamu.unity
+    path: Assets/Scenes/ruangmakan.unity
     guid: 46105664c300e9a4b9c99267bc499a47
+  - enabled: 1
+    path: Assets/Scenes/kamartidur.unity
+    guid: 94ebe644979fb2c40b887b3da7315b1a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8c3445579bae5024bbc8d369396f8427, type: 2}

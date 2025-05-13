@@ -1,38 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class DoorTrigger : MonoBehaviour
+public class DoorInteractionTrigger : MonoBehaviour
 {
+    [Header ("Spawn KE")]
+    [SerializeField] DoorToSpawnAt DoorToSpawnTo;
+    [SerializeField] SceneField scenetoload;
+
     [Header("Visual Tag")]
     [SerializeField] GameObject visualtag;
-    // Start is called before the first frame update
-
-    
     bool PlayerInRange;
 
-    [SerializeField] string sceneName;
-    [SerializeField] string IDpintuyangdituju;
-    private void Awake()
-    {
-        PlayerInRange = false;
-        visualtag.SetActive(false);
-    }
-    void Start()
-    {
-        
-    }
+    [Space(10f)]
+    [Header ("Pintu Ini")]
+    public DoorToSpawnAt PosisiPintuIni;
 
-    // Update is called once per frame
+    public enum DoorToSpawnAt{
+        None,
+        One,
+        Two,
+        Three,
+        Four,
+    }
+    private void Awake()
+        {
+            PlayerInRange = false;
+            visualtag.SetActive(false);
+        }
     void Update()
     {
         if (PlayerInRange){
             visualtag.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                SceneTransitionManager.Instance.IDpintuyangdituju = IDpintuyangdituju;
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                SceneSwapper.SwapSceneFromDoorUse(scenetoload, DoorToSpawnTo);
             }
         }
 
@@ -43,7 +46,7 @@ public class DoorTrigger : MonoBehaviour
          
     }
 
-    void OnTriggerEnter2D (Collider2D collision)
+     void OnTriggerEnter2D (Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

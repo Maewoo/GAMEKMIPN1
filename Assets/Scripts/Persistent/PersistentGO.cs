@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersistentGO : MonoBehaviour
 {
-    private static PersistentGO instance;
+    public static PersistentGO instance;
 
     void Awake()
     {
