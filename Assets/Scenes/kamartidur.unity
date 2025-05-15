@@ -910,6 +910,7 @@ RectTransform:
   m_Children:
   - {fileID: 655330498}
   - {fileID: 1448391836}
+  - {fileID: 1843802951871234344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1528,7 +1529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tekan E untuk interaksi.
+  m_text: Tekan A dan D untuk berjalan.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1635,7 +1636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 863072887060631741, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 863072887060631741, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1885,12 +1886,12 @@ RectTransform:
   m_Children:
   - {fileID: 1809671498142564147}
   - {fileID: 4979659198588091065}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 978128320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 960, y: 0.92211914}
-  m_SizeDelta: {x: 0, y: -843.1814}
+  m_AnchoredPosition: {x: 0, y: -539.0779}
+  m_SizeDelta: {x: -1920, y: -1923.1814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094678761839778276
 MonoBehaviour:
@@ -2204,4 +2205,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 1375268928}
   - {fileID: 978128320}
-  - {fileID: 1843802951871234344}
