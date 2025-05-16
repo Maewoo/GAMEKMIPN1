@@ -274,11 +274,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &243543094 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1276279292546228474, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
-  m_PrefabInstance: {fileID: 6857035047499872532}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &256630649 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7437562577640156262, guid: a8b792a507634244396d290f6558cf4e, type: 3}
@@ -1046,7 +1041,7 @@ Transform:
   - {fileID: 339370341}
   - {fileID: 166488076}
   - {fileID: 262772650}
-  - {fileID: 243543094}
+  - {fileID: 1967349332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1809805363
@@ -1187,6 +1182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b64f3c641bbaa4a9a173aa2c322752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1967349332 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 863072887060631741, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+  m_PrefabInstance: {fileID: 6857035047499872532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1980767619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5584557895525550662, guid: a8b792a507634244396d290f6558cf4e, type: 3}
@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualtag: {fileID: 8178056971559872798}
   inkJSON: {fileID: 4900000, guid: 44fc07ec863c25e4483317d41768f3c1, type: 3}
+  knotToJump: 
 --- !u!114 &1205654299755271297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4604,7 +4605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7771444273517315968
 RectTransform:
   m_ObjectHideFlags: 0

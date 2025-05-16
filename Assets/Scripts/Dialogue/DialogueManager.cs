@@ -82,17 +82,26 @@ public class DialogueManager : MonoBehaviour
         if ( canContinueToNextLine && storynya.currentChoices.Count == 0 && InputManager.GetInstance().GetNextDialoguePressed()){
             ContinueStory();
         }
+
+        /* var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
+        playerInput.actions.FindActionMap("UI").Enable(); */
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON){
+    public void EnterDialogueMode(TextAsset inkJSON, string knotToJump = null){
         storynya = new Story(inkJSON.text);
+        if (!string.IsNullOrEmpty(knotToJump))
+        {
+            storynya.ChoosePathString(knotToJump);
+        }
         dialogueisplaying = true;
         dialogPanel.SetActive(true);
         //dialogTeks.text = storynya.Continue();
         ContinueStory();
+        
+        
 
-        /* var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("UI"); */
+        var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("UI");
     }
     private IEnumerator ExitDialogueMode(){
 
@@ -101,8 +110,10 @@ public class DialogueManager : MonoBehaviour
         dialogPanel.SetActive(false);
         dialogTeks.text = "";
 
-        /* var playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("Player"); */
+        var playerInput = InputManager.GetInstance().GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("Player");
+        playerInput.actions.FindActionMap("UI").Enable();
+        
     }
 
     private void ContinueStory(){

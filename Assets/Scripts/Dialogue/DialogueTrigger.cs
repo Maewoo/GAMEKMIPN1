@@ -13,6 +13,8 @@ public class DialogueTrigger : MonoBehaviour
 
     bool PlayerInRange;
 
+    public string knotToJump;
+
     //NEW INPUT SYSTEM
     /* private PlayerInputAction playerControls;
     private InputAction interact;
@@ -35,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
             visualtag.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJSON, knotToJump);
             }
             //{
             //    //Debug.Log(inkJSON.text);
