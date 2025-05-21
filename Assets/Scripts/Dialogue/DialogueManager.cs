@@ -34,7 +34,8 @@ public class DialogueManager : MonoBehaviour
 
 
 
-
+    // === Variable storeage === //
+    
 
 
     private Story storynya;
@@ -85,6 +86,27 @@ public class DialogueManager : MonoBehaviour
 
         /* var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
         playerInput.actions.FindActionMap("UI").Enable(); */
+
+        int berani = (int)storynya.variablesState["berani_berubah"];
+        int rasional = (int)storynya.variablesState["rasional"];
+        int terjebak = (int)storynya.variablesState["terjebak"];
+
+        if (berani >= 2) {
+            Debug.Log("Ending: Berani Berubah");
+            //Ending_beraniBerubah();
+        }
+        else if (rasional >= 2) {
+            Debug.Log("Ending: Rasional");
+            //Ending_rasional();
+        }
+        else if (terjebak >= 3) {
+            Debug.Log("Ending: Terjebak");
+            //Ending_terjebak();
+            
+        }
+    }
+    public Story GetStory() {
+        return storynya;
     }
 
     public void EnterDialogueMode(TextAsset inkJSON, string knotToJump = null){
@@ -204,6 +226,10 @@ public class DialogueManager : MonoBehaviour
                 case PORTRAIT_TAG:
                     portraitAnimator.Play(tagValue);
                     break;
+                case "SCENE":
+                    Debug.Log("Scene tag ditemukan: " + tagValue);
+                    SceneLoader.Instance.FadeToScene(tagValue);
+                    break;
                 default:
                     Debug.LogWarning("Tagnya ada tapi tidak terhandle " + tag);
                     break;
@@ -246,10 +272,20 @@ public class DialogueManager : MonoBehaviour
         {
             storynya.ChooseChoiceIndex(choiceIndex);
             Debug.Log("Kamu memilih pilihan " + choicesText[choiceIndex].text);
+
             InputManager.GetInstance().RegisterNextDialogue();
             
             ContinueStory(); 
+
+            
+            Debug.Log("→ berani_berubah: " + storynya.variablesState["berani_berubah"]);
+            Debug.Log("→ rasional: " + storynya.variablesState["rasional"]);
+            Debug.Log("→ terjebak: " + storynya.variablesState["terjebak"]);
         }
+        
+    }
+
+    void EndingCheck(){
         
     }
 }
