@@ -15,9 +15,11 @@ public class DialogueManager : MonoBehaviour
     const string SPEAKER_TAG = "speaker";
     const string LAYOUT_TAG = "layout";
     const string PORTRAIT_TAG = "portrait";
+    const string SCENE_TAG = "scene";
+    const string UI_ANIM = "UI_Anim";
 
 
-    [Header ("Parameter")]
+    [Header("Parameter")]
     [SerializeField] float typingSpeed = 0.05f;
     [Header ("Dialog UI")]
     [SerializeField] private GameObject dialogPanel;
@@ -32,10 +34,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] Pilihan;
     private TextMeshProUGUI[] choicesText;
 
-
+    [Header("UI ANIM")]
+    [SerializeField] private Animator uiAnimator;
 
     // === Variable storeage === //
-    
+
 
 
     private Story storynya;
@@ -68,42 +71,29 @@ public class DialogueManager : MonoBehaviour
         //untuk panjang choices text
         choicesText = new TextMeshProUGUI[Pilihan.Length];
         int index = 0;
-        foreach (GameObject pilihannya in Pilihan){
+        foreach (GameObject pilihannya in Pilihan)
+        {
             choicesText[index] = pilihannya.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+    
     }
 
     private void Update()
     {
-        if(!dialogueisplaying){
+        if (!dialogueisplaying)
+        {
             return;
         }
-        
-        if ( canContinueToNextLine && storynya.currentChoices.Count == 0 && InputManager.GetInstance().GetNextDialoguePressed()){
+
+        if (canContinueToNextLine && storynya.currentChoices.Count == 0 && InputManager.GetInstance().GetNextDialoguePressed())
+        {
             ContinueStory();
         }
 
         /* var playerInput= InputManager.GetInstance().GetComponent<PlayerInput>();
         playerInput.actions.FindActionMap("UI").Enable(); */
-
-        int berani = (int)storynya.variablesState["berani_berubah"];
-        int rasional = (int)storynya.variablesState["rasional"];
-        int terjebak = (int)storynya.variablesState["terjebak"];
-
-        if (berani >= 2) {
-            Debug.Log("Ending: Berani Berubah");
-            //Ending_beraniBerubah();
-        }
-        else if (rasional >= 2) {
-            Debug.Log("Ending: Rasional");
-            //Ending_rasional();
-        }
-        else if (terjebak >= 3) {
-            Debug.Log("Ending: Terjebak");
-            //Ending_terjebak();
-            
-        }
+        
     }
     public Story GetStory() {
         return storynya;
@@ -111,8 +101,17 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON, string knotToJump = null){
         storynya = new Story(inkJSON.text);
+        
+        GlobalEndingState.ApplyToStory(storynya);
         if (!string.IsNullOrEmpty(knotToJump))
         {
+
+            /* if (PlayerPrefs.HasKey("SavedInkState"))
+            {
+                string savedState = PlayerPrefs.GetString("SavedInkState");
+                storynya.state.LoadJson(savedState);
+            } */
+
             storynya.ChoosePathString(knotToJump);
         }
         dialogueisplaying = true;
@@ -126,6 +125,9 @@ public class DialogueManager : MonoBehaviour
         playerInput.SwitchCurrentActionMap("UI");
     }
     private IEnumerator ExitDialogueMode(){
+        
+        /* string savedState = storynya.state.ToJson();
+        PlayerPrefs.SetString("SavedInkState", savedState); */
 
         yield return new WaitForSeconds(0.2f);
         dialogueisplaying = false;
@@ -139,21 +141,30 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ContinueStory(){
-        if (storynya.canContinue){
+        if (storynya.canContinue)
+        {
             //set teks untuk dialog
             //mencegah bug dialogue line ketika line pertama belum selesai
             if (tampilkanLineCoroutine != null)
             {
                 StopCoroutine(tampilkanLineCoroutine);
             }
-            
+
             tampilkanLineCoroutine = StartCoroutine(TypewriterEffect(storynya.Continue()));
             //menampilkan pilihannya
             TampilkanPilihan();
 
             HandleTags(storynya.currentTags);
+
+            GlobalEndingState.UpdateFromStory(storynya);
+
+            Debug.Log("→ berani_berubah: " + storynya.variablesState["berani_berubah"]);
+            Debug.Log("→ rasional: " + storynya.variablesState["rasional"]);
+            Debug.Log("→ terjebak: " + storynya.variablesState["terjebak"]);
+            
         }
-        else{
+        else
+        {
             StartCoroutine(ExitDialogueMode());
         }
     }
@@ -226,9 +237,38 @@ public class DialogueManager : MonoBehaviour
                 case PORTRAIT_TAG:
                     portraitAnimator.Play(tagValue);
                     break;
-                case "SCENE":
+                case SCENE_TAG:
                     Debug.Log("Scene tag ditemukan: " + tagValue);
                     SceneLoader.Instance.FadeToScene(tagValue);
+                    break;
+
+                case UI_ANIM:
+                    string[] uiData = tagValue.Split(',');
+                    if (uiData.Length == 2)
+                    {
+                        string uiName = uiData[0].Trim();
+                        string triggerName = uiData[1].Trim();
+
+                        Debug.Log($"Mencoba trigger UI: {uiName}, anim: {triggerName}");
+
+                        GameObject uiObject = GameObject.Find(uiName);
+                        Animator anim = uiObject?.GetComponent<Animator>();
+
+                        if (anim != null)
+                        {
+                            anim.SetTrigger(triggerName);
+                            Debug.Log($"Trigger UI animasi '{triggerName}' pada {uiName}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Animator tidak ditemukan di {uiName}");
+                        }
+                        
+                    }
+                        else
+                        {
+                            Debug.LogError("Format tag UI_ANIM salah: " + tagValue);
+                        }
                     break;
                 default:
                     Debug.LogWarning("Tagnya ada tapi tidak terhandle " + tag);
@@ -268,24 +308,68 @@ public class DialogueManager : MonoBehaviour
     public void BuatPilihan(int choiceIndex){
 
         if (canContinueToNextLine)
-        
+
         {
             storynya.ChooseChoiceIndex(choiceIndex);
             Debug.Log("Kamu memilih pilihan " + choicesText[choiceIndex].text);
 
             InputManager.GetInstance().RegisterNextDialogue();
-            
-            ContinueStory(); 
 
+            ContinueStory(); 
             
-            Debug.Log("→ berani_berubah: " + storynya.variablesState["berani_berubah"]);
-            Debug.Log("→ rasional: " + storynya.variablesState["rasional"]);
-            Debug.Log("→ terjebak: " + storynya.variablesState["terjebak"]);
         }
         
     }
 
     void EndingCheck(){
-        
+
+        int berani = (int)storynya.variablesState["berani_berubah"];
+        int rasional = (int)storynya.variablesState["rasional"];
+        int terjebak = (int)storynya.variablesState["terjebak"];
+
+        if (berani >= 4)
+        {
+            Debug.Log("Ending: Berani Berubah");
+            //Ending_beraniBerubah();
+        }
+        else if (rasional >= 4)
+        {
+            Debug.Log("Ending: Rasional");
+            //Ending_rasional();
+        }
+        else if (terjebak >= 3)
+        {
+            Debug.Log("Ending: Terjebak");
+            //Ending_terjebak();
+
+        }
     }
 }
+
+    public static class GlobalEndingState
+    {
+        public static int berani_berubah = 0;
+        public static int rasional = 0;
+        public static int terjebak = 0;
+
+        public static void UpdateFromStory(Story story)
+        {
+            berani_berubah = (int)story.variablesState["berani_berubah"];
+            rasional = (int)story.variablesState["rasional"];
+            terjebak = (int)story.variablesState["terjebak"];
+        }
+
+        public static void ApplyToStory(Story story)
+        {
+            story.variablesState["berani_berubah"] = berani_berubah;
+            story.variablesState["rasional"] = rasional;
+            story.variablesState["terjebak"] = terjebak;
+        }
+
+        public static void Reset()
+        {
+            berani_berubah = 0;
+            rasional = 0;
+            terjebak = 0;
+        }
+    }

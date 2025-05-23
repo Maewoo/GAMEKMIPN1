@@ -40,13 +40,14 @@ Hari ini bakal ada apa yang ditunggu di sekolah? #speaker:Ibu #portrait:Ibu_neut
 
 == sceneruangtamu ==
 Aku, berangkat sekolah dulu ya bang. #speaker:Rara #portrait:Rara_neutral #layout:left
-Iya ra, hati hati ya #speaker:Jaki #portrait:Jaki_neutral #layout:right
--> END
+Iya ra, hati hati ya #speaker:Jaki #portrait:Jaki_neutral #layout:right #UI_Anim:UI_Objective, Popped
+-> END  
     
     
 == sceneruangkelas ==
 Eh rara, lu jadi ikut lomba puisi kan? #speaker:Ega #portrait:Ega_neutral #layout:right
 + [Ikut] Ikut, kalo lu? #speaker:Rara #portrait:Rara_neutral #layout:left
+~berani_berubah +=1
     Ikutlah, masa engga. #speaker:Ega #portrait:Ega_neutral #layout:right
     Eh, <i>by the way</i> lu mau buat puisi temanya apa, ra?" #speaker:Ega #portrait:Ega_neutral #layout:right
     ** Ada deh rahasia, nanti lu juga tau kok #speaker:Rara #portrait:Rara_happy #layout:left
@@ -62,8 +63,8 @@ Eh rara, lu jadi ikut lomba puisi kan? #speaker:Ega #portrait:Ega_neutral #layou
 
 == scenekamarsore ==
 Ibu ngapain ada di kamar aku? #speaker:Rara #portrait:Rara_curious #layout:left
-Ibu hanya membereskan kamarmu saja. (berdiri dari duduknya. Sambil memegang kumpulan lembar kertas di tangan kanannya)
-Ibu melihat ada kertas puisi. Kamu mengikuti lomba puisi?
+Ibu hanya membereskan kamarmu saja. (berdiri dari duduknya. Sambil memegang kumpulan lembar kertas di tangan kanannya) #speaker:Ibu #portrait:Ibu_neutral #layout:right
+Ibu melihat ada kertas puisi. Kamu mengikuti lomba puisi? #speaker:Ibu #portrait:Ibu_neutral #layout:right
 (<i>Rara merasakan badannya sedikit menegang</i>) Iya, bu. aku ikut lomba puisi. #speaker:Rara #portrait:Rara_neutral #layout:left
 Bagaimana dengan tugas harian mu? #speaker:Ibu #portrait:Ibu_neutral #layout:right
 (Udara di kamar yang mulai gerah dirasakan oleh Rara.) #speaker:Rara #portrait:Rara_neutral #layout:left
@@ -76,23 +77,23 @@ Pasti terganggu kan? harusnya kamu fokus saja ke tugas harian mu dulu agar nilai
     Lagian prospek kerjanya juga kurang dibandingkan jurusan kuliah yang ibu ayah pilih #speaker:Ibu #portrait:Ibu_kesal #layout:right 
         
         ** Gamau bu, aku tetep mau jurusan yang aku mau #speaker:Rara #portrait:Rara_marah #layout:left
-            ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right
+            ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right #UI_Anim:UI_Objective, Popped
         ~ berani_berubah +=1
+            
             -> END
         ** iya bu, nanti ku pikirkan lagi jurusan yang akan aku ambil #speaker:Rara #portrait:Rara_neutral2 #layout:left
-            ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right
+            ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right #UI_Anim:UI_Objective, Popped
         ~ rasional +=1
          -> END
     + [tidak terganggu] Tugasku tidak terganggu kok, lagian nilai ku gabakal turun karena lomba doang. #speaker:Rara #portrait:Rara_neutral #layout:left
-        ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right
-        (Ibu beranjak keluar dari kamar Rara.)
-    -> END
-    
--> END
+        Ya pokonya ibu gamau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right
+        (Ibu beranjak keluar dari kamar Rara.) #UI_Anim:UI_Objective, Popped
+    -> END 
 
 == tempattidur ==
 Apakah kamu ingin tidur?
-+ Iya
++ [Iya]
+(Kamu tidur.) #scene:kamartidur3
 -> END
 
 == ruangmakan2 ===
@@ -103,9 +104,9 @@ besok pendaftaran sudah di mulai, kamu masih mau ambil jurusan lain? #speaker:Ib
         
         Sudah rara, pilih saja jurusan yang ibu bapak pilih dan jangan pilih jurusan tidak jelas #speaker:Ibu #portrait:Ibu_neutral #layout:right
         
-        ** Iya bu, rara pilih jurusan ibu dan bapak pilih #speaker:Rara #portrait:Rara_neutral2 #layout:left
+        ** [Iya, bu]Iya bu, rara pilih jurusan ibu dan bapak pilih #speaker:Rara #portrait:Rara_neutral2 #layout:left
         -> END
-        ** Gatau, Bu. Rara bingung. #speaker:Rara #portrait:Rara_neutral #layout:left
+        ** [Gatau]Gatau, Bu. Rara bingung. #speaker:Rara #portrait:Rara_neutral #layout:left
         
             Sudahlah, yah, bu. Biarkan Rara berfikir dulu sendiri. #speaker:Jaki #portrait:Jaki_neutral #layout:right
             Lagian Rara bisa telat sekolah kalau dipaksa menjawab pertanyaan ayah dan ibu. #speaker:Jaki #portrait:Jaki_neutral #layout:right
@@ -128,6 +129,7 @@ eh btw lu dan tau jurusan apa yang mau di ambil? #speaker:Ega #portrait:Ega_neut
         Keren deh, mantap! #speaker:Ega #portrait:Ega_neutral #layout:right
         
         (Bel pulang berbunyi.)
+        #scene: ruangTV2
     -> END
     + Gua ambil jurusan sesuai pilihan orang tua gua #speaker:Rara #portrait:Rara_sad #layout:left
         Oh! serius? gua kira lu bakal ambil jurusan sastra! #speaker:Ega #portrait:Ega_neutral #layout:right
@@ -136,6 +138,7 @@ eh btw lu dan tau jurusan apa yang mau di ambil? #speaker:Ega #portrait:Ega_neut
             Wah, semoga jurusannya cocok sama lu ya! #speaker:Ega #portrait:Ega_neutral #layout:right
             
             (Bel pulang berbunyi.)
+            #scene: ruangTV2
             -> END
             
         ** [Ragu] (Rara menundukkan kepalanya, menatap kedua sepatunya.)#speaker:Rara #portrait:Rara_sad #layout:left
@@ -148,14 +151,14 @@ eh btw lu dan tau jurusan apa yang mau di ambil? #speaker:Ega #portrait:Ega_neut
             (Menghela napas) #speaker:Ega #portrait:Ega_neutral #layout:right
             Emang berat, sih. Semuanya harus dipikirin baik-baik biar ga salah langkah. #speaker:Ega #portrait:Ega_neutral #layout:right
             Semoga ketemu jurusan yang sesuai ya! #speaker:Ega #portrait:Ega_neutral #layout:right
-            
+        
             (Bel pulang berbunyi.)
-    
+            #scene: ruangTV2
         -> END
         
-== sceneruangtamu2 ==
-(Jaki menyadari kehadiran adiknya di dekatnya.)
-(Kehadiran Rara yang datang tiba-tiba seperti ini membuat Jaki merasa ada yang aneh terjadi pada adiknya.)
+== sceneruangtv2 ==
+(Jaki menyadari kehadiran adiknya di dekatnya.) #speaker:Jaki #portrait:Jaki_neutral #layout:right
+(Kehadiran Rara yang datang tiba-tiba seperti ini membuat Jaki merasa ada yang aneh terjadi pada adiknya.) #speaker:Jaki #portrait:Jaki_neutral #layout:right
 Kenapa, Ra? #speaker:Jaki #portrait:Jaki_neutral #layout:right
 Keliatan bingung gitu. #speaker:Jaki #portrait:Jaki_neutral #layout:right
 
@@ -169,42 +172,59 @@ Abang ada satu pertanyaan yang mungkin bisa bantu kamu buat milih jurusan kuliah
 Kira-kira... #speaker:Jaki #portrait:Jaki_neutral #layout:right
 Kamu siap ga untuk belajar yang mungkin hal baru buat kamu seandainya kalo masuk jurusan pilihan ibu dan ayah? #speaker:Jaki #portrait:Jaki_neutral #layout:right
 
-+ [Kokoh] Engga sih bang #speaker:Rara #portrait:Rara_sad #layout:left
-    ~berani_berubah+=1
-    Aku ga siap kalo mempelajari hal baru. #speaker:Rara #portrait:Rara_sad #layout:left
-    Aku bakal tetap milih jurusan aku sendiri, bang. #speaker:Rara #portrait:Rara_sad #layout:left
-    Mending aku kembangin aja skill berpuisi ku daripada harus ikut jurusan yang ayah dan ibu pilih. #speaker:Rara #portrait:Rara_sad #layout:left
+    + [Kokoh] Engga sih bang #speaker:Rara #portrait:Rara_sad #layout:left
+        ~berani_berubah+=1
+        Aku ga siap kalo mempelajari hal baru. #speaker:Rara #portrait:Rara_sad #layout:left
+        Aku bakal tetap milih jurusan aku sendiri, bang. #speaker:Rara #portrait:Rara_sad #layout:left
+        Mending aku kembangin aja skill berpuisi ku daripada harus ikut jurusan yang ayah dan ibu pilih. #speaker:Rara #portrait:Rara_sad #layout:left
+        
+        Kalo seperti itu, cobalah yakinin ayah sama ibu untuk terakhir kalinya. #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        Atau kamu akan tetap memilih jurusan yang kamu inginkan tanpa restu dari orang tua? #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        Kamu yang menerima konsekuensinya. Tapi apapun itu pilihannya, abang akan terus selalu dukung kamu, kok. Tenang aja. #speaker:Jaki #portrait:Jaki_neutral #layout:right
     
-    Kalo seperti itu, cobalah yakinin ayah sama ibu untuk terakhir kalinya. #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    Atau kamu akan tetap memilih jurusan yang kamu inginkan tanpa restu dari orang tua? #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    Kamu yang menerima konsekuensinya. Tapi apapun itu pilihannya, abang akan terus selalu dukung kamu, kok. Tenang aja. #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        -> checkending
+    + [Bingung](Rara menundukkan kepalanya) Ngga tau sih, bang. Aku tetep masih bingung. #speaker:Rara #portrait:Rara_sad #layout:left
+        
+        Coba kamu pikir ulang, Ra. Pikir dengan baik-baik. #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        Karena pasti restu orang tua juga bisa mempengaruhi kamu nanti dalam menimba ilmu.#speaker:Jaki #portrait:Jaki_neutral #layout:right
+        
+        Kamu lebih baik masuk ke jurusan yang ayah dan ibu pilih atau #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        Kamu bisa memilih jurusan seperti yang mereka mau tetapi dengan syarat #speaker:Jaki #portrait:Jaki_neutral #layout:right
+        Kamu harus bisa yakinin mereka kalau kamu bisa menjalankan itu secara berdampingan! #speaker:Jaki #portrait:Jaki_neutral #layout:right
     
--> END
-+ [Bingung](Rara menundukkan kepalanya) Ngga tau sih, bang. Aku tetep masih bingung. #speaker:Rara #portrait:Rara_sad #layout:left
-    
-    Coba kamu pikir ulang, Ra. Pikir dengan baik-baik. #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    Karena pasti restu orang tua juga bisa mempengaruhi kamu nanti dalam menimba ilmu.#speaker:Jaki #portrait:Jaki_neutral #layout:right
-    
-    Kamu lebih baik masuk ke jurusan yang ayah dan ibu pilih atau #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    Kamu bisa memilih jurusan seperti yang mereka mau tetapi dengan syarat #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    Kamu harus bisa yakinin mereka kalau kamu bisa menjalankan itu secara berdampingan! #speaker:Jaki #portrait:Jaki_neutral #layout:right
-    
-    ** [Setuju!]
-    ~rasional +=1
-        (Rara mengangkat kepalanya dengan sangat cepat) #speaker:Rara #portrait:Rara_happy #layout:left
-        Ah iya! #speaker:Rara #portrait:Rara_happy #layout:left
-        Ide bagus, ide bagus! #speaker:Rara #portrait:Rara_happy #layout:left
-        Benar juga, bang! Aku coba bujuk ayah dan ibu buat ngebolehin aku untuk menyalurkan hobi nulis puisi aku dan aku juga masuk ke jurusan yang ayah dan ibu mau, bang!. #speaker:Rara #portrait:Rara_happy #layout:left
-        Oke! Terima kasih, bang atas sarannya. (Kemudian Rara beranjak menemui orang tuanya.) #speaker:Rara #portrait:Rara_happy #layout:left
-    -> END
-    ** [Terpaksa] Aku... #speaker:Rara #portrait:Rara_sad #layout:left
-        ~terjebak +=1
-            ... #speaker:Rara #portrait:Rara_sad #layout:left
-            Aku kayaknya bakal ikut kemauan ayah dan ibu aja, bang. #speaker:Rara #portrait:Rara_sad #layout:left
-            (Rara berdiam diri untuk waktu yang lama) #speaker:Rara #portrait:Rara_sad #layout:left
-            ... #speaker:Rara #portrait:Rara_sad #layout:left
-            Iya... #speaker:Rara #portrait:Rara_sad #layout:left
-            Iya, aku akan mengikuti jurusan yang mereka mau saja. #speaker:Rara #portrait:Rara_sad #layout:left
-    -> END
+        ** [Setuju!]
+        ~rasional +=1
+            (Rara mengangkat kepalanya dengan sangat cepat) #speaker:Rara #portrait:Rara_happy #layout:left
+            Ah iya! #speaker:Rara #portrait:Rara_happy #layout:left
+            Ide bagus, ide bagus! #speaker:Rara #portrait:Rara_happy #layout:left
+            Benar juga, bang! Aku coba bujuk ayah dan ibu buat ngebolehin aku untuk menyalurkan hobi nulis puisi aku dan aku juga masuk ke jurusan yang ayah dan ibu mau, bang!. #speaker:Rara #portrait:Rara_happy #layout:left
+            Oke! Terima kasih, bang atas sarannya. (Kemudian Rara beranjak menemui orang tuanya.) #speaker:Rara #portrait:Rara_happy #layout:left
+        -> checkending
+        ** [Terpaksa] Aku... #speaker:Rara #portrait:Rara_sad #layout:left
+            ~terjebak +=1
+                ... #speaker:Rara #portrait:Rara_sad #layout:left
+                Aku kayaknya bakal ikut kemauan ayah dan ibu aja, bang. #speaker:Rara #portrait:Rara_sad #layout:left
+                (Rara berdiam diri untuk waktu yang lama) #speaker:Rara #portrait:Rara_sad #layout:left
+                ... #speaker:Rara #portrait:Rara_sad #layout:left
+                Iya... #speaker:Rara #portrait:Rara_sad #layout:left
+                Iya, aku akan mengikuti jurusan yang mereka mau saja. #speaker:Rara #portrait:Rara_sad #layout:left
+        -> checkending
 
-
+== checkending ==
+{berani_berubah >= 4:
+    (Kamu sudah cukup berani untuk mengambil keputusanmu sendiri.)
+    #scene:EndingBerani
+    -> END
+- else: {rasional >= 4:
+    (Kamu memilih jalan yang logis dan bijaksana.)
+    #scene:EndingRasional
+    -> END
+- else: {terjebak >= 3:
+    (Kamu terjebak mengikuti keinginan orang lain...)
+    #scene:EndingTerjebak
+    -> END
+- else:
+    (Belum waktunya menentukan akhir. Lanjutkan ceritamu.)
+    -> END
+}
+->END
