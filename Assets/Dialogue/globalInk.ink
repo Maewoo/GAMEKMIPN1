@@ -114,11 +114,15 @@ Apakah kamu ingin tidur? #speaker:... #portrait:blank #layout:center
 (Kamu tidur.) #scene:kamartidur3
 -> END
 
+== kamartidur3 ==
+Ayo cepat! Sudah siang! Jangan kelamaan di kamar! #speaker:Ibu #portrait:Ibu_neutral #layout:right
+-> END
+
 == ruangmakan2 ===
-(Rara berjalan menuju meja makan untuk sarapan.)
-(Ia melihat kedua orang tuanya sudah berada di sana.)
-(Suasana hening menyelimuti ruang makan itu.)
-(Rara merasakan perasaan tidak nyaman karena dia masih dihantui perasaan bimbang masalah pemilihan jurusan kuliahnya.)
+(Rara berjalan menuju meja makan untuk sarapan.) #speaker: #portrait:blank #layout:center
+(Ia melihat kedua orang tuanya sudah berada di sana.) #speaker: #portrait:blank #layout:center
+(Suasana hening menyelimuti ruang makan itu.) #speaker: #portrait:blank #layout:center
+(Rara merasakan perasaan tidak nyaman karena dia masih dihantui perasaan bimbang masalah pemilihan jurusan kuliahnya.) #speaker: #portrait:blank #layout:center
 ... #speaker:Ayah #portrait:Ayah_neutral #layout:right
 Besok pendaftaran sudah di mulai. Gimana dengan pilihanmu? #speaker:Ibu #portrait:Ibu_kesal #layout:right
 Kamu masih mau ambil jurusan lain? #speaker:Ibu #portrait:Ibu_kesal #layout:right
@@ -161,7 +165,7 @@ Kamu masih mau ambil jurusan lain? #speaker:Ibu #portrait:Ibu_kesal #layout:righ
             Aku berangkat sekolah dulu ya. #speaker:Rara #portrait:Rara_neutral #layout:left
             
             Iya Ra, hati-hati ya. #speaker:Jaki #portrait:Jaki_neutral #layout:right
-        
+        ->END
         
 == scenekelas2 ==
 (Rara menghampiri Ega yang berada di depan kelas.) #speaker:Rara #portrait:Rara_neutral #layout:left
@@ -270,20 +274,17 @@ Kamu siap ga untuk belajar yang mungkin hal baru buat kamu seandainya kalo masuk
         -> checkending
 
 == checkending ==
-{berani_berubah >= 4:
-    (Kamu sudah cukup berani untuk mengambil keputusanmu sendiri.)
-    #scene:EndingBerani
-    -> END
-- else: {rasional >= 4:
-    (Kamu memilih jalan yang logis dan bijaksana.)
-    #scene:EndingRasional
-    -> END
-- else: {terjebak >= 3:
-    (Kamu terjebak mengikuti keinginan orang lain...)
-    #scene:EndingTerjebak
-    -> END
-- else:
-    (Belum waktunya menentukan akhir. Lanjutkan ceritamu.)
-    -> END
-}
+#checkdominantending
+-> END
+
+==berani_ending ==
+#scene:EndingBerani
 ->END
+
+==terjebak_ending==
+#scene:EndingTerjebak
+-> END
+
+==rasional_ending ==
+#scene:EndingRasional
+-> END

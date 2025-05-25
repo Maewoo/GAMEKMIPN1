@@ -1072,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 6ad1bada662b22647847bb7998fa784e, type: 3}
     - target: {fileID: 3412920267343837026, guid: 2fd430200a23a724aa6a7565fda9e267, type: 3}
       propertyPath: knotToJump
-      value: chap1scene1
+      value: kamartidur3
       objectReference: {fileID: 0}
     - target: {fileID: 3629497255818528770, guid: 2fd430200a23a724aa6a7565fda9e267, type: 3}
       propertyPath: m_Name

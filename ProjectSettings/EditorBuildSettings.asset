@@ -38,5 +38,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ruangTV2.unity
     guid: 9ab67d94023808f40ab19adc5bcb9a8f
+  - enabled: 1
+    path: Assets/Scenes/EndingBerani.unity
+    guid: 52f7eaa57ed942d41952fb81bfee1ad1
+  - enabled: 1
+    path: Assets/Scenes/EndingRasional.unity
+    guid: bd31b1dfa76c5214082617f7e747d6ee
+  - enabled: 1
+    path: Assets/Scenes/EndingTerjebak.unity
+    guid: eb55ce59b9737d243ba92d8edae4fcbe
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8c3445579bae5024bbc8d369396f8427, type: 2}

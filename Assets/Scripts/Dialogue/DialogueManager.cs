@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     const string PORTRAIT_TAG = "portrait";
     const string SCENE_TAG = "scene";
     const string UI_ANIM = "UI_Anim";
+    const string CHECKENDING_TAG = "checkdominantending";
 
 
     [Header("Parameter")]
@@ -103,6 +104,7 @@ public class DialogueManager : MonoBehaviour
         storynya = new Story(inkJSON.text);
         
         GlobalEndingState.ApplyToStory(storynya);
+
         if (!string.IsNullOrEmpty(knotToJump))
         {
 
@@ -141,6 +143,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ContinueStory(){
+        //GlobalEndingState.CekEndingDominan(storynya);
+
         if (storynya.canContinue)
         {
             //set teks untuk dialog
@@ -161,7 +165,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("→ berani_berubah: " + storynya.variablesState["berani_berubah"]);
             Debug.Log("→ rasional: " + storynya.variablesState["rasional"]);
             Debug.Log("→ terjebak: " + storynya.variablesState["terjebak"]);
-            
+
         }
         else
         {
@@ -220,14 +224,18 @@ public class DialogueManager : MonoBehaviour
     void HandleTags(List<string> currentTags){
         foreach (string tag in currentTags)
         {
-            string[] splitTag = tag.Split (":");
-            if (splitTag.Length != 2){
+            if (tag.Contains(":"))
+            {
+                string[] splitTag = tag.Split(":");
+            if (splitTag.Length != 2)
+            {
                 Debug.LogError("Tag tidak bisa diparse: " + tag);
             }
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
 
-            switch (tagKey){
+            switch (tagKey)
+            {
                 case SPEAKER_TAG:
                     displaynamaSpeaker.text = tagValue;
                     break;
@@ -241,6 +249,10 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("Scene tag ditemukan: " + tagValue);
                     SceneLoader.Instance.FadeToScene(tagValue);
                     break;
+
+                /* case CHECKENDING_TAG:
+                    GlobalEndingState.CekEndingDominan(storynya);
+                    break; */
 
                 case UI_ANIM:
                     string[] uiData = tagValue.Split(',');
@@ -263,16 +275,35 @@ public class DialogueManager : MonoBehaviour
                         {
                             Debug.LogWarning($"Animator tidak ditemukan di {uiName}");
                         }
-                        
+
                     }
-                        else
-                        {
-                            Debug.LogError("Format tag UI_ANIM salah: " + tagValue);
-                        }
+                    else
+                    {
+                        Debug.LogError("Format tag UI_ANIM salah: " + tagValue);
+                    }
                     break;
                 default:
                     Debug.LogWarning("Tagnya ada tapi tidak terhandle " + tag);
                     break;
+                }
+            }
+            else
+            {
+                switch (tag.Trim())
+                {
+                    case "checkdominantending":
+                        GlobalEndingState.CekEndingDominan(storynya);
+
+                        if (storynya.canContinue)
+                        {
+                            ContinueStory();
+                        }
+                        break;
+
+                    default:
+                        Debug.Log("Tag tunggal tidak dikenali: " + tag);
+                        break;
+                }
             }
         }
     }
@@ -346,30 +377,86 @@ public class DialogueManager : MonoBehaviour
     }
 }
 
-    public static class GlobalEndingState
+public static class GlobalEndingState
+{
+    public static int berani_berubah = 0;
+    public static int rasional = 0;
+    public static int terjebak = 0;
+
+    public static void UpdateFromStory(Story story)
     {
-        public static int berani_berubah = 0;
-        public static int rasional = 0;
-        public static int terjebak = 0;
+        berani_berubah = (int)story.variablesState["berani_berubah"];
+        rasional = (int)story.variablesState["rasional"];
+        terjebak = (int)story.variablesState["terjebak"];
+    }
 
-        public static void UpdateFromStory(Story story)
+    public static void ApplyToStory(Story story)
+    {
+        story.variablesState["berani_berubah"] = berani_berubah;
+        story.variablesState["rasional"] = rasional;
+        story.variablesState["terjebak"] = terjebak;
+    }
+
+    public static void Reset()
+    {
+        berani_berubah = 0;
+        rasional = 0;
+        terjebak = 0;
+    }
+
+    public static void CekEndingDominan(Story story)
+    {
+        int berani = (int)story.variablesState["berani_berubah"];
+        int rasional = (int)story.variablesState["rasional"];
+        int terjebak = (int)story.variablesState["terjebak"];
+
+        Debug.Log($"→ berani: {berani}, rasional: {rasional}, terjebak: {terjebak}");
+
+        if (berani > rasional && berani > terjebak)
         {
-            berani_berubah = (int)story.variablesState["berani_berubah"];
-            rasional = (int)story.variablesState["rasional"];
-            terjebak = (int)story.variablesState["terjebak"];
+            story.ChoosePathString("berani_ending");
+            Debug.Log("Ending: BERANI");
         }
-
-        public static void ApplyToStory(Story story)
+        else if (rasional > berani && rasional > terjebak)
         {
-            story.variablesState["berani_berubah"] = berani_berubah;
-            story.variablesState["rasional"] = rasional;
-            story.variablesState["terjebak"] = terjebak;
+            story.ChoosePathString("rasional_ending");
+            Debug.Log("Ending: RASIONAL");
         }
-
-        public static void Reset()
+        else if (terjebak > berani && terjebak > rasional)
         {
-            berani_berubah = 0;
-            rasional = 0;
-            terjebak = 0;
+            story.ChoosePathString("terjebak_ending");
+            Debug.Log("Ending: TERJEBAK");
+
         }
     }
+}
+/* public static class EndingCheckerDominan
+{
+    public Story story;
+
+    public static void CekEndingDominan(Story storynya)
+    {
+        int berani = (int)story.variablesState["berani_berubah"];
+        int rasional = (int)story.variablesState["rasional"];
+        int terjebak = (int)story.variablesState["terjebak"];
+
+        Debug.Log($"→ berani: {berani}, rasional: {rasional}, terjebak: {terjebak}");
+
+        if (berani > rasional && berani > terjebak)
+        {
+            story.ChoosePathString("berani_ending");
+            Debug.Log("Ending: BERANI");
+        }
+        else if (rasional > berani && rasional > terjebak)
+        {
+            story.ChoosePathString("rasional_ending");
+            Debug.Log("Ending: RASIONAL");
+        }
+        else if (terjebak > berani && terjebak > rasional)
+        {
+            story.ChoosePathString("terjebak_ending");
+            Debug.Log("Ending: TERJEBAK");
+
+        }
+    }
+} */
