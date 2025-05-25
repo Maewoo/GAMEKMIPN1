@@ -291,7 +291,7 @@ public class DialogueManager : MonoBehaviour
             {
                 switch (tag.Trim())
                 {
-                    case "checkdominantending":
+                    case CHECKENDING_TAG:
                         GlobalEndingState.CekEndingDominan(storynya);
 
                         if (storynya.canContinue)

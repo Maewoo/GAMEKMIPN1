@@ -1082,8 +1082,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375268928}
-  - component: {fileID: 1375268929}
   - component: {fileID: 1375268930}
+  - component: {fileID: 1375268931}
   m_Layer: 0
   m_Name: Kamar
   m_TagString: Untagged
@@ -1117,18 +1117,6 @@ Transform:
   - {fileID: 1554804469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1375268929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375268927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58434295ab3d0942a171cb79497ae27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1375268930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1146,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1375268931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375268927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58434295ab3d0942a171cb79497ae27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448391835
 GameObject:
   m_ObjectHideFlags: 0

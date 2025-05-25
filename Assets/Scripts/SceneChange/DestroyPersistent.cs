@@ -7,7 +7,7 @@ public class DestroyPersistent : MonoBehaviour
 {
     [SerializeField] private string[] targetScenes;
 
-    void Start()
+    void Awake()
     {
         string currentScene = SceneManager.GetActiveScene().name;
 

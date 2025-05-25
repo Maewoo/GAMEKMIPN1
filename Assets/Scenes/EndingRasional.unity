@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 508417607}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -675,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508417605}
   - component: {fileID: 508417606}
+  - component: {fileID: 508417607}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -727,6 +728,18 @@ PlayableDirector:
     value: {fileID: 279583005}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &508417607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508417604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef6b04f8e13644458cdd92d8b7d5510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &514519874
 GameObject:
   m_ObjectHideFlags: 0
