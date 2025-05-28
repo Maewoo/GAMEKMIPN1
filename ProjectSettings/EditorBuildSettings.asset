@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6329c82d4c5ea13489cda05db952d557
+  - enabled: 0
     path: Assets/Scenes/MainGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/ruangmakan.unity
-    guid: 46105664c300e9a4b9c99267bc499a47
   - enabled: 1
     path: Assets/Scenes/kamartidur.unity
     guid: 94ebe644979fb2c40b887b3da7315b1a
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 6329c82d4c5ea13489cda05db952d557
+    path: Assets/Scenes/ruangmakan.unity
+    guid: 46105664c300e9a4b9c99267bc499a47
   - enabled: 1
     path: Assets/Scenes/kamartidur2.unity
     guid: 1854a53b5fb77cd4ca3f8752ddd430ce
