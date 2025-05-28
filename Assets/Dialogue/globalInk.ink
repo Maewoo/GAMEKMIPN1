@@ -178,7 +178,7 @@ Lu udah tau jurusan apa yang mau diambil? #speaker:Ega #portrait:Ega_neutral #la
     + [Sastra] Umm... Gua jadinya ambil jurusan sastra indonesia. #speaker:Rara #portrait:Rara_neutral #layout:left
         Wah, gilaaa! keren! #speaker:Ega #portrait:Ega_happy #layout:right
         sesuai passion lu ya berarti! #speaker:Ega #portrait:Ega_happy #layout:right
-        Iya! hehehe! #speaker:Rara #portrait:Rara_smile #layout:left
+        Iya! hehehe! #speaker:Rara #portrait:Rara_happy #layout:left
         
         Keren deh, mantap! #speaker:Ega #portrait:Ega_neutral #layout:right
         Semoga lolos ya, Ra! Semangat! Gua dukung lu! #speaker:Ega #portrait:Ega_neutral #layout:right
@@ -215,8 +215,7 @@ Lu udah tau jurusan apa yang mau diambil? #speaker:Ega #portrait:Ega_neutral #la
             Emang berat, sih. Semuanya harus dipikirin baik-baik biar ga salah langkah. #speaker:Ega #portrait:Ega_neutral #layout:right
             Semoga ketemu jurusan yang sesuai ya! #speaker:Ega #portrait:Ega_neutral #layout:right
         
-            (Bel pulang berbunyi.)
-            #scene: ruangTV2
+            (Bel pulang berbunyi.)#scene: ruangTV2
         -> END
         
 == sceneruangtv2 ==

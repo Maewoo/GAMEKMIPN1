@@ -881,6 +881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pintu
       objectReference: {fileID: 0}
+    - target: {fileID: 7457749347301580340, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8026692755729606482, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: DoorToSpawnTo
       value: 1

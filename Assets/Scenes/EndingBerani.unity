@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Kamu memilih jurusan kuliah sesuai pilihanmu dan '
+  m_text: Kamu memilih jurusan kuliah sesuai pilihanmu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 342fde27f0de99245907dbbcade17417, type: 2}
   m_sharedMaterial: {fileID: 825550778703180976, guid: 342fde27f0de99245907dbbcade17417, type: 2}
