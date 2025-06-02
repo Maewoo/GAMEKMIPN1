@@ -877,6 +877,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663441692463062959, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057355866868077991, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7457749347301580340, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_Name
       value: pintu
@@ -909,6 +917,14 @@ PrefabInstance:
       propertyPath: scenetoload.m_SceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 94ebe644979fb2c40b887b3da7315b1a, type: 3}
+    - target: {fileID: 8434435013262923528, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043744340130232580, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
