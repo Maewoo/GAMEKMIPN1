@@ -1390,7 +1390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 863072887060631741, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 863072887060631741, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1432,6 +1432,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7362903341387832654, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.65
+      objectReference: {fileID: 0}
     - target: {fileID: 7457749347301580340, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_Name
       value: pintu
@@ -1460,6 +1464,14 @@ PrefabInstance:
       propertyPath: scenetoload.m_SceneAsset
       value: 
       objectReference: {fileID: 102900000, guid: 46105664c300e9a4b9c99267bc499a47, type: 3}
+    - target: {fileID: 8434435013262923528, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434435013262923528, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

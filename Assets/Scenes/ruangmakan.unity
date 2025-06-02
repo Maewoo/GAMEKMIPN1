@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5663441692463062959, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7057355866868077991, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_IsActive
@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457749347301580340, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8026692755729606482, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: DoorToSpawnTo
@@ -953,11 +953,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817897354636010546, guid: 2fd430200a23a724aa6a7565fda9e267, type: 3}
       propertyPath: m_Size.x
-      value: 3.3108008
+      value: 1.4953125
       objectReference: {fileID: 0}
     - target: {fileID: 1817897354636010546, guid: 2fd430200a23a724aa6a7565fda9e267, type: 3}
       propertyPath: m_Offset.x
-      value: 0.5461124
+      value: -0.36163175
       objectReference: {fileID: 0}
     - target: {fileID: 1894065708502894738, guid: 2fd430200a23a724aa6a7565fda9e267, type: 3}
       propertyPath: m_LocalPosition.x

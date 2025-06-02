@@ -50,9 +50,11 @@ Eh rara, lu jadi ikut lomba puisi kan? #speaker:Ega #portrait:Ega_neutral #layou
 ~berani_berubah +=1
     Ikutlah, masa engga. #speaker:Ega #portrait:Ega_neutral #layout:right
     Eh, <i>by the way</i> lu mau buat puisi temanya apa, ra?" #speaker:Ega #portrait:Ega_neutral #layout:right
-    ** Ada deh rahasia, nanti lu juga tau kok #speaker:Rara #portrait:Rara_happy #layout:left
+    ** [Rahasia] Ada deh rahasia, nanti lu juga tau kok #speaker:Rara #portrait:Rara_happy #layout:left
     -> END
-    ** Gatau nih masih bingung, nanti deh gua pikirin lagi #speaker:Rara #portrait:Rara_sad #layout:left
+    ** Gatau[] nih masih bingung, nanti deh gua pikirin lagi #speaker:Rara #portrait:Rara_sad #layout:left
+    (Bel istirahat berbunyi) #speaker:  #portrait:blank #layout:center
+    (Rara kemudian melanjutkan kegiatan belajar mengajar sampai sore hari.) #speaker:  #portrait:blank #layout:center
     -> END
 
 + [Engga] Engga ikut dulu ga, gua fokus belajar dulu buat persiapan daftar kuliah nanti #speaker:Rara #portrait:Rara_neutral #layout:left
@@ -80,7 +82,7 @@ Pasti terganggu kan? harusnya kamu fokus saja ke tugas harian mu dulu agar nilai
     + [berontak] (Mengambil nafas dalam-dalam) #speaker:Rara #portrait:Rara_neutral #layout:left
     ~ berani_berubah +=2
     Aku... #speaker:Rara #portrait:Rara_sad #layout:left
-    Aku ngga mau memilih jurusan yang ibu dan ayah tentukan. #speaker:Rara #portrait:Rara_marah #layout:left
+    Aku ngga mau memilih jurusan yang ibu dan ayah tentukan. #speaker:Rara #portrait:Rara_kesal #layout:left
     Aku mau jurusan yang aku mau. #speaker:Rara #portrait:Rara_marah #layout:left
     (Ibu tidak menyangka anaknya akan menjawab dengan begitu tegas.) #speaker:Ibu #portrait:Ibu_kesal #layout:right
     Apa? #speaker:Ibu #portrait:Ibu_kesal #layout:right
@@ -111,7 +113,7 @@ Pasti terganggu kan? harusnya kamu fokus saja ke tugas harian mu dulu agar nilai
 == tempattidur ==
 Apakah kamu ingin tidur? #speaker:... #portrait:blank #layout:center
 + [Iya]
-(Kamu tidur.) #scene:kamartidur3
+(Kamu tidur.) #speaker: #portrait:blank #layout:center #scene:kamartidur3
 -> END
 
 == kamartidur3 ==
@@ -123,8 +125,10 @@ Ayo cepat! Sudah siang! Jangan kelamaan di kamar! #speaker:Ibu #portrait:Ibu_neu
 (Ia melihat kedua orang tuanya sudah berada di sana.) #speaker: #portrait:blank #layout:center
 (Suasana hening menyelimuti ruang makan itu.) #speaker: #portrait:blank #layout:center
 (Rara merasakan perasaan tidak nyaman karena dia masih dihantui perasaan bimbang masalah pemilihan jurusan kuliahnya.) #speaker: #portrait:blank #layout:center
+
 ... #speaker:Ayah #portrait:Ayah_neutral #layout:right
-Besok pendaftaran sudah di mulai. Gimana dengan pilihanmu? #speaker:Ibu #portrait:Ibu_kesal #layout:right
+
+Besok pendaftaran sudah dimulai. Gimana dengan pilihanmu? #speaker:Ibu #portrait:Ibu_kesal #layout:right
 Kamu masih mau ambil jurusan lain? #speaker:Ibu #portrait:Ibu_kesal #layout:right
     + [Masih ragu] Masih ku pikirkan bu. #speaker:Rara #portrait:Rara_sad #layout:left
         ... #speaker:Ayah #portrait:Ayah_neutral #layout:right
@@ -199,7 +203,7 @@ Lu udah tau jurusan apa yang mau diambil? #speaker:Ega #portrait:Ega_neutral #la
             Semoga jurusannya cocok sama lu ya! #speaker:Ega #portrait:Ega_neutral #layout:right
             Semangat! semangat! semangat! Lu pasti bisa! #speaker:Ega #portrait:Ega_happy #layout:right
             
-            (Bel pulang berbunyi.)#scene: ruangTV2
+            (Bel pulang berbunyi.)#speaker: #portrait:blank #layout:center #scene:ruangTV2
             
             -> END
             
@@ -215,7 +219,7 @@ Lu udah tau jurusan apa yang mau diambil? #speaker:Ega #portrait:Ega_neutral #la
             Emang berat, sih. Semuanya harus dipikirin baik-baik biar ga salah langkah. #speaker:Ega #portrait:Ega_neutral #layout:right
             Semoga ketemu jurusan yang sesuai ya! #speaker:Ega #portrait:Ega_neutral #layout:right
         
-            (Bel pulang berbunyi.)#scene: ruangTV2
+            (Bel pulang berbunyi.)#speaker: #portrait:blank #layout:center #scene:ruangTV2
         -> END
         
 == sceneruangtv2 ==
