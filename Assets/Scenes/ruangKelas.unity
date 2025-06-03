@@ -219,12 +219,12 @@ GameObject:
   - component: {fileID: 359892888}
   - component: {fileID: 359892892}
   m_Layer: 0
-  m_Name: BGMChp2
-  m_TagString: Untagged
+  m_Name: BGMRuangkelas
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &359892888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   - ruangmakan
   - ruangmakan2
   - ruangTV2
+  - ruangTV
 --- !u!82 &359892890
 AudioSource:
   m_ObjectHideFlags: 0

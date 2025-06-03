@@ -840,12 +840,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026692755729606482, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: scenetoload._SceneName
-      value: kamartidur2
+      value: ruangTV2
       objectReference: {fileID: 0}
     - target: {fileID: 8026692755729606482, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
       propertyPath: scenetoload._SceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: 1854a53b5fb77cd4ca3f8752ddd430ce, type: 3}
+      objectReference: {fileID: 102900000, guid: 9ab67d94023808f40ab19adc5bcb9a8f, type: 3}
+    - target: {fileID: 8434435013262923528, guid: 3515db791c57b4b49b764d9e665a015e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

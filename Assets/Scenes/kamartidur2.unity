@@ -841,11 +841,11 @@ GameObject:
   - component: {fileID: 625915458}
   m_Layer: 0
   m_Name: BGMChp2
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &625915457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,9 +872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 625915459}
   targetSceneNames:
-  - kamartidur
-  - ruangmakan2
+  - ruangKelas2
   - ruangTV2
+  - kamartidur
   - ruangmakan
 --- !u!82 &625915459
 AudioSource:
