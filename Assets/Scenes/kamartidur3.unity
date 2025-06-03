@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bimbang
+  m_text: Impian atau Realita?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea77f1f8ca97e2f49832c1d65f6f49fe, type: 2}
   m_sharedMaterial: {fileID: -7428942665292751360, guid: ea77f1f8ca97e2f49832c1d65f6f49fe, type: 2}

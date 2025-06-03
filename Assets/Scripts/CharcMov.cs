@@ -14,7 +14,7 @@ public class CharcMov : MonoBehaviour
     //private bool grounded;
     bool facingRight = true;
     bool isSprinting;
-    //private bool isMoving = false;
+    bool isMoving = false;
     //float MovH;
 
     [SerializeField] float movSpeed;
@@ -32,6 +32,12 @@ public class CharcMov : MonoBehaviour
     private static CharcMov instance;
     Vector2 MovH = Vector2.zero;
 
+    //WAlk & Run
+    private AudioSource audioSource;
+    [SerializeField] AudioClip walkingsfx;
+    [SerializeField] AudioClip runningsfx;
+
+    
 
     void Awake()
     {
@@ -83,8 +89,9 @@ public class CharcMov : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent <Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -99,15 +106,37 @@ public class CharcMov : MonoBehaviour
             animator.SetBool("IsRunning", false);
             //animator.SetBool("IsJumping", false);
             animator.SetFloat("Speed", 0f);
+            isMoving = false;
             return;
         }
 
-        else if (!DialogueManager.GetInstance().dialogueisplaying || !ItemExaminer.GetInstance().examineisplaying || !InventoryManager.GetInstance().inventoryisactive){
-        movSpeed = isSprinting ? sprintMultiplier : walkspeed;
-        animator.SetBool("IsRunning", isSprinting);
+        else if (!DialogueManager.GetInstance().dialogueisplaying || !ItemExaminer.GetInstance().examineisplaying || !InventoryManager.GetInstance().inventoryisactive)
+        {
+            movSpeed = isSprinting ? sprintMultiplier : walkspeed;
+            animator.SetBool("IsRunning", isSprinting);
+            animator.SetBool("IsMoving", isMoving);
 
-        MovH = move.ReadValue<Vector2>();
-        MoveHorizontal();
+            if (isSprinting == true)
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = runningsfx;
+                    audioSource.loop = true;
+                    audioSource.Play();
+                }
+            }
+            else if (isSprinting == false)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+            }
+
+
+
+            MovH = move.ReadValue<Vector2>();
+            MoveHorizontal();
         }
 
         
@@ -130,18 +159,20 @@ public class CharcMov : MonoBehaviour
 
     }
 
-    void MoveHorizontal(){
+    void MoveHorizontal()
+    {
+
         rb2D.velocity = new Vector2(MovH.x * movSpeed, rb2D.velocity.y);
         if (MovH.x > 0 && !facingRight || MovH.x < 0 && facingRight)
         {
             Flip();
-            
+
         }
         /*if ()
         {
             Flip();
             
-        }*/    
+        }*/
         if (MovH.x == 0)
         {
             animator.SetBool("IsMoving", false);
@@ -149,21 +180,22 @@ public class CharcMov : MonoBehaviour
         else
         {
             animator.SetBool("IsMoving", true);
+
         }
         animator.SetFloat("Speed", Mathf.Abs(MovH.x));
+
         
 
 
-
        /*  if (Input.GetKeyDown(KeyCode.LeftShift)){
-            movSpeed = sprintMultiplier;
-            animator.SetBool("IsRunning", true);
-            Debug.Log("sprinting!");
-        }
-        else if(Input.GetKeyUp(KeyCode.LeftShift)){
-            movSpeed = walkspeed;
-            animator.SetBool("IsRunning", false);
-        } */
+             movSpeed = sprintMultiplier;
+             animator.SetBool("IsRunning", true);
+             Debug.Log("sprinting!");
+         }
+         else if(Input.GetKeyUp(KeyCode.LeftShift)){
+             movSpeed = walkspeed;
+             animator.SetBool("IsRunning", false);
+         } */
     }
 
     void Flip()
