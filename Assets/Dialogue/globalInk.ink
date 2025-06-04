@@ -91,7 +91,7 @@ Pasti terganggu kan? harusnya kamu fokus saja ke tugas harian mu dulu agar nilai
     Ini demi masa depan kamu juga, Ra! #speaker:Ibu #portrait:Ibu_kesal #layout:right
     (Rara merasakan tenggorokannya seperti tercekik.) #speaker:Rara #portrait:Rara_marah #layout:left
         
-        ** [Ngga mau]Ngga mau bu, aku tetap mau memilih jurusan yang aku mau. #speaker:Rara #portrait:Rara_marah #layout:left
+        ** [Ngga mau]Ngga mau bu, aku tetap mau memilih jurusan yang aku mau. #speaker:Rara #portrait:Rara_kesal #layout:left
         ~ berani_berubah +=1
             Ya pokonya ibu ngga mau tau, kamu harus masuk jurusan yang ayah dan ibu pilih. #speaker:Ibu #portrait:Ibu_kesal #layout:right #UI_Anim:UI_Objective, Popped
             (Ibu beranjak keluar dari kamar Rara.)

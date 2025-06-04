@@ -33,7 +33,7 @@ public class CharcMov : MonoBehaviour
     Vector2 MovH = Vector2.zero;
 
     //WAlk & Run
-    private AudioSource audioSource;
+    [SerializeField]private AudioSource audioSource;
     [SerializeField] AudioClip walkingsfx;
     [SerializeField] AudioClip runningsfx;
 
@@ -91,7 +91,7 @@ public class CharcMov : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

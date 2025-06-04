@@ -7264,6 +7264,7 @@ MonoBehaviour:
   movSpeed: 3
   walkspeed: 3
   sprintMultiplier: 7
+  audioSource: {fileID: 1771780722800246104}
   walkingsfx: {fileID: 8300000, guid: 342283de7df14354aa15434574914463, type: 3}
   runningsfx: {fileID: 8300000, guid: 270d353bc7f766f4cba84e075430d483, type: 3}
 --- !u!95 &6424033476213711894
