@@ -89,7 +89,7 @@ Pasti terganggu kan? harusnya kamu fokus saja ke tugas harian mu dulu agar nilai
     Emangnya apasih gunanya mempelajari seni? #speaker:Ibu #portrait:Ibu_kesal #layout:right
     Lagian prospek kerjanya juga kurang dibandingkan jurusan kuliah yang ibu ayah pilih #speaker:Ibu #portrait:Ibu_kesal #layout:right
     Ini demi masa depan kamu juga, Ra! #speaker:Ibu #portrait:Ibu_kesal #layout:right
-    (Rara merasakan tenggorokannya seperti tercekik.) #speaker:Rara #portrait:Rara_marah #layout:left
+    (Rara merasakan tenggorokannya seperti tercekik.) #speaker:Rara #portrait:Rara_kesal #layout:left
         
         ** [Ngga mau]Ngga mau bu, aku tetap mau memilih jurusan yang aku mau. #speaker:Rara #portrait:Rara_kesal #layout:left
         ~ berani_berubah +=1
